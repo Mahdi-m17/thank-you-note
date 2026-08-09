@@ -1,0 +1,132 @@
+body[data-theme="formal"] {
+  --ink: #1a2330;
+  --ink-soft: #4a5563;
+  --paper: #f7f8fa;
+  --paper-edge: #d8dde5;
+  --wax: #2f4256;
+  --wax-shine: #4a5f75;
+  --sky-deep: #1e2d3d;
+  --brand: #eef2f6;
+  --dust: 210, 220, 235;
+}
+
+body[data-theme="formal"] .atmosphere {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(74, 99, 128, 0.35), transparent 55%),
+    linear-gradient(180deg, #243447 0%, #1e2d3d 50%, #182433 100%);
+}
+
+body[data-theme="formal"] .brand,
+body[data-theme="formal"] .panel-title {
+  font-family: "Libre Baskerville", Georgia, serif;
+}
+
+body[data-theme="formal"] .greeting,
+body[data-theme="formal"] .signature,
+body[data-theme="formal"] .to-line {
+  font-family: "Libre Baskerville", Georgia, serif !important;
+}
+
+body[data-theme="formal"] .to-line {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+body[data-theme="formal"] .seal {
+  border-radius: 2px;
+  background: linear-gradient(145deg, #4a5f75, #2f4256);
+  border: 1px solid rgba(238, 242, 246, 0.35);
+  box-shadow: none;
+}
+
+body[data-theme="formal"] .seal::after {
+  border-radius: 0;
+  inset: 28%;
+  border-color: rgba(238, 242, 246, 0.4);
+}
+
+body[data-theme="formal"] .letter::before {
+  background: #2a3d52;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: auto;
+  height: 3px;
+  mix-blend-mode: normal;
+}
+
+body[data-theme="soft"] {
+  --ink: #243028;
+  --ink-soft: #4d5c52;
+  --paper: #f4f1ea;
+  --paper-edge: #d9d4c8;
+  --wax: #5f7a64;
+  --wax-shine: #7a987f;
+  --sky-deep: #2a3a32;
+  --brand: #f2f5f1;
+  --dust: 220, 235, 220;
+}
+
+body[data-theme="soft"] .atmosphere {
+  background:
+    radial-gradient(ellipse 90% 70% at 30% 20%, rgba(140, 170, 145, 0.35), transparent 55%),
+    radial-gradient(ellipse 60% 50% at 80% 80%, rgba(60, 90, 75, 0.7), transparent 50%),
+    linear-gradient(165deg, #334840 0%, #2a3a32 50%, #1f2c26 100%);
+}
+
+body[data-theme="soft"] .envelope-back {
+  background: linear-gradient(160deg, #4a6354 0%, #364a3e 100%);
+}
+
+body[data-theme="soft"] .envelope-front {
+  background:
+    linear-gradient(180deg, transparent 42%, #3d5547 42%),
+    linear-gradient(135deg, transparent 49.5%, #455e50 49.5%, #455e50 50.5%, transparent 50.5%),
+    linear-gradient(-135deg, transparent 49.5%, #374c40 49.5%, #374c40 50.5%, transparent 50.5%),
+    #425c4d;
+}
+
+body[data-theme="soft"] .envelope-flap {
+  background: linear-gradient(180deg, #5a7564 0%, #4a6354 100%);
+}
+
+body[data-theme="celebration"] {
+  --ink: #2a1f14;
+  --ink-soft: #5c4634;
+  --paper: #faf3e6;
+  --paper-edge: #e8d5b5;
+  --wax: #9a3d2e;
+  --wax-shine: #c45a42;
+  --sky-deep: #2a1f2e;
+  --brand: #fff6e8;
+  --dust: 255, 220, 160;
+}
+
+body[data-theme="celebration"] .atmosphere {
+  background:
+    radial-gradient(ellipse 90% 70% at 75% 10%, rgba(220, 150, 80, 0.5), transparent 50%),
+    radial-gradient(ellipse 50% 40% at 15% 70%, rgba(120, 50, 70, 0.45), transparent 50%),
+    linear-gradient(165deg, #3d2a38 0%, #2a1f2e 45%, #1a141c 100%);
+}
+
+body[data-theme="celebration"] .envelope-back {
+  background: linear-gradient(160deg, #5a3d4a 0%, #3d2a35 100%);
+}
+
+body[data-theme="celebration"] .envelope-front {
+  background:
+    linear-gradient(180deg, transparent 42%, #4a3340 42%),
+    linear-gradient(135deg, transparent 49.5%, #523848 49.5%, #523848 50.5%, transparent 50.5%),
+    linear-gradient(-135deg, transparent 49.5%, #3f2c38 49.5%, #3f2c38 50.5%, transparent 50.5%),
+    #4d3644;
+}
+
+body[data-theme="celebration"] .envelope-flap {
+  background: linear-gradient(180deg, #6b4a58 0%, #5a3d4a 100%);
+}
+
+body[data-theme="celebration"] .brand {
+  color: #fff4e4;
+}

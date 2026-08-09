@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thank You Note Generator</title>
+    <meta
+      name="description"
+      content="Create, customize, preview, save, and share a memorable thank-you note in multiple languages."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Caveat:wght@500;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;500;600&family=Vazirmatn:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="themes.css" />
+  </head>
+  <body data-theme="warm" data-ui-lang="en" data-ui-dir="ltr">
+    <div class="atmosphere" aria-hidden="true">
+      <div class="glow glow-a"></div>
+      <div class="glow glow-b"></div>
+      <div class="curtain"></div>
+      <canvas id="dust" class="dust"></canvas>
+    </div>
+
+    <div class="lang-bar" role="region" aria-label="Languages">
+      <span class="lang-bar-label" data-i18n="langBarLabel">Languages</span>
+      <label class="lang-field">
+        <span data-i18n="siteLanguage">Website language</span>
+        <select id="uiLangSelect" aria-label="Website language"></select>
+      </label>
+      <label class="lang-field">
+        <span data-i18n="noteLanguage">Note language</span>
+        <select id="noteLangSelect" aria-label="Note language"></select>
+      </label>
+    </div>
+
+    <main class="stage">
+      <section class="panel" id="stepWelcome" data-step="welcome">
+        <p class="eyebrow" data-i18n="eyebrow">Thank You Note Generator</p>
+        <h1 class="brand" data-i18n="brand">Just a simple note</h1>
+        <p class="lede" data-i18n="welcomeLede">
+          Describe what you’re grateful for. We’ll shape it into a note you can
+          preview, save, and share.
+        </p>
+        <label class="field-label" for="ideaInput" data-i18n="ideaLabel">Your idea</label>
+        <textarea
+          id="ideaInput"
+          class="idea-input"
+          rows="4"
+          data-i18n-placeholder="ideaPlaceholder"
+          placeholder="e.g. Happy birthday… or thank a friend for standing by me…"
+        ></textarea>
+        <div class="cta-row gap wrap">
+          <button type="button" class="btn primary" id="btnToCustomize" data-i18n="continue">
+            Continue
+          </button>
+          <button type="button" class="btn ghost" id="btnLoadDraftWelcome" hidden data-i18n="loadDraft">
+            Load saved draft
+          </button>
+        </div>
+      </section>
+
+      <section class="panel panel-wide" id="stepCustomize" data-step="customize" hidden>
+        <p class="eyebrow" data-i18n="customizeEyebrow">Customize</p>
+        <h2 class="panel-title" data-i18n="customizeTitle">Shape your note</h2>
+
+        <p class="section-label" data-i18n="sectionPeople">People &amp; date</p>
+        <div class="form-grid">
+          <div class="field">
+            <label class="field-label" for="recipientInput" data-i18n="to">To</label>
+            <input id="recipientInput" type="text" data-i18n-placeholder="recipientPh" placeholder="Recipient’s name" />
+          </div>
+          <div class="field">
+            <label class="field-label" for="senderInput" data-i18n="from">From</label>
+            <input id="senderInput" type="text" data-i18n-placeholder="senderPh" placeholder="Your name" />
+          </div>
+          <div class="field">
+            <label class="field-label" for="dateInput" data-i18n="date">Date</label>
+            <input id="dateInput" type="text" value="September 2026" />
+          </div>
+          <div class="field field-check">
+            <label class="check-label">
+              <input type="checkbox" id="showDateCheck" checked />
+              <span data-i18n="showDate">Show date on the letter</span>
+            </label>
+          </div>
+        </div>
+
+        <p class="section-label" data-i18n="sectionSound">How it should sound</p>
+        <div class="form-grid">
+          <div class="field">
+            <label class="field-label" for="noteLangSelectInline" data-i18n="noteLanguage">Note language</label>
+            <select id="noteLangSelectInline"></select>
+          </div>
+          <div class="field">
+            <label class="field-label" for="toneSelect" data-i18n="tone">Tone</label>
+            <select id="toneSelect">
+              <option value="warm">Warm</option>
+              <option value="formal">Formal</option>
+              <option value="playful">Playful</option>
+              <option value="heartfelt">Heartfelt</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="field-label" for="lengthSelect" data-i18n="length">Length</label>
+            <select id="lengthSelect">
+              <option value="short">Short</option>
+              <option value="medium" selected>Medium</option>
+              <option value="long">Long</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="field-label" for="paragraphSelect" data-i18n="paragraphs">Paragraphs</label>
+            <select id="paragraphSelect">
+              <option value="1">1 paragraph</option>
+              <option value="2" selected>2 paragraphs</option>
+              <option value="3">3 paragraphs</option>
+              <option value="4">4 paragraphs</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="field-label" for="occasionSelect" data-i18n="occasion">Occasion</label>
+            <select id="occasionSelect">
+              <option value="auto" selected>Auto (from your idea)</option>
+              <option value="general">General thanks</option>
+              <option value="birthday">Birthday</option>
+              <option value="congratulations">Congratulations</option>
+              <option value="getwell">Get well soon</option>
+              <option value="apology">Apology</option>
+              <option value="goodluck">Good luck</option>
+              <option value="farewell">Farewell</option>
+              <option value="welcome">Welcome</option>
+              <option value="newyear">New Year</option>
+              <option value="student">Teacher → student</option>
+              <option value="friend">Friendship</option>
+              <option value="colleague">Work / colleague</option>
+              <option value="family">Family</option>
+              <option value="gift">Gift received</option>
+              <option value="help">Help / support</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="field-label" for="greetingStyleSelect" data-i18n="greetingStyle">Greeting style</label>
+            <select id="greetingStyleSelect">
+              <option value="dear">Dear …</option>
+              <option value="hi">Hi …</option>
+              <option value="hello">Hello …</option>
+              <option value="hey">Hey …</option>
+              <option value="mydear">My dear …</option>
+              <option value="dearest">Dearest …</option>
+              <option value="to">To …</option>
+              <option value="greetings">Greetings …</option>
+              <option value="none">No greeting line</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="field-label" for="closingStyleSelect" data-i18n="closingStyle">Closing style</label>
+            <select id="closingStyleSelect">
+              <option value="auto">Match tone / occasion</option>
+              <option value="warm">With warm thanks,</option>
+              <option value="sincerely">Sincerely,</option>
+              <option value="appreciation">With appreciation,</option>
+              <option value="cheers">Cheers,</option>
+              <option value="grateful">Yours gratefully,</option>
+              <option value="love">With love,</option>
+              <option value="bestwishes">Best wishes,</option>
+              <option value="takeCare">Take care,</option>
+              <option value="fondly">Fondly,</option>
+              <option value="respectfully">Respectfully,</option>
+              <option value="untilThen">Until next time,</option>
+              <option value="allTheBest">All the best,</option>
+            </select>
+          </div>
+        </div>
+
+        <p class="section-label" data-i18n="sectionLook">Look</p>
+        <div class="theme-picker" role="group" data-i18n-aria="sectionLook">
+          <button type="button" class="theme-chip is-active" data-theme-pick="warm">Warm letter</button>
+          <button type="button" class="theme-chip" data-theme-pick="formal">Formal</button>
+          <button type="button" class="theme-chip" data-theme-pick="soft">Soft</button>
+          <button type="button" class="theme-chip" data-theme-pick="celebration">Celebration</button>
+        </div>
+
+        <div class="cta-row gap wrap">
+          <button type="button" class="btn" id="btnGenerate" data-i18n="generate">Generate draft</button>
+          <button type="button" class="btn ghost" id="btnClearBody" data-i18n="clearBody">Clear body text</button>
+          <button type="button" class="btn ghost" id="btnBackWelcome" data-i18n="back">Back</button>
+        </div>
+
+        <div class="edit-block" id="editBlock">
+          <p class="section-label" data-i18n="sectionEdit">Edit the letter</p>
+          <div class="field">
+            <label class="field-label" for="greetingInput" data-i18n="greeting">Greeting</label>
+            <input id="greetingInput" type="text" dir="auto" />
+          </div>
+          <div id="paragraphFields"></div>
+          <div class="field">
+            <label class="field-label" for="closingInput" data-i18n="closing">Closing</label>
+            <input id="closingInput" type="text" dir="auto" />
+          </div>
+          <div class="field">
+            <label class="field-label" for="signatureInput" data-i18n="signature">Signature</label>
+            <input id="signatureInput" type="text" dir="auto" />
+          </div>
+        </div>
+
+        <div class="cta-row gap wrap">
+          <button type="button" class="btn primary" id="btnPreview" data-i18n="preview">Preview note</button>
+          <button type="button" class="btn" id="btnSaveDraft" data-i18n="saveDraft">Save draft</button>
+        </div>
+        <p class="status" id="customizeStatus" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="letter-scene" id="letterScene" data-step="preview" hidden aria-hidden="true">
+        <div class="envelope" id="envelope">
+          <div class="envelope-back"></div>
+          <div class="envelope-flap" id="flap"></div>
+          <div class="envelope-front">
+            <span class="seal" aria-hidden="true"></span>
+            <p class="to-line" id="envelopeTo">For you</p>
+          </div>
+        </div>
+
+        <article class="letter" id="letter" aria-label="Thank you letter">
+          <header class="letter-head" id="letterHead">
+            <p class="date" id="letterDate">September 2026</p>
+          </header>
+          <div class="letter-body" id="letterBody"></div>
+          <footer class="letter-foot">
+            <button type="button" class="again-btn" id="readAgain" data-i18n="readAgain">
+              Read it once more
+            </button>
+            <button type="button" class="btn primary compact" id="btnToShare" data-i18n="continueShare">
+              Continue to share
+            </button>
+            <button type="button" class="btn compact ghost-ink" id="btnPreviewEdit" data-i18n="editAgain">
+              Edit again
+            </button>
+          </footer>
+        </article>
+      </section>
+
+      <section class="panel panel-wide" id="stepShare" data-step="share" hidden>
+        <p class="eyebrow" data-i18n="shareEyebrow">Share &amp; save</p>
+        <h2 class="panel-title" data-i18n="shareTitle">Your note is ready</h2>
+        <p class="lede tight" data-i18n="shareLede">
+          Save a file, copy a link, send it, or keep a draft on this device.
+        </p>
+
+        <p class="section-label" data-i18n="sectionSaveFile">Save as a file</p>
+        <div class="cta-row gap wrap start">
+          <button type="button" class="btn primary" id="btnDownload" data-i18n="downloadHtml">Download HTML</button>
+          <button type="button" class="btn" id="btnDownloadTxt" data-i18n="downloadTxt">Download text (.txt)</button>
+          <button type="button" class="btn" id="btnPrint" data-i18n="printPdf">Print / PDF</button>
+        </div>
+
+        <p class="section-label" data-i18n="sectionShareOnline">Share online</p>
+        <div class="cta-row gap wrap start">
+          <button type="button" class="btn" id="btnCopyLink" data-i18n="copyLink">Copy share link</button>
+          <button type="button" class="btn" id="btnCopyText" data-i18n="copyText">Copy plain text</button>
+          <button type="button" class="btn" id="btnNativeShare" data-i18n="shareNative">Share…</button>
+        </div>
+
+        <p class="section-label" data-i18n="sectionSend">Send</p>
+        <div class="cta-row gap wrap start">
+          <button type="button" class="btn" id="btnEmail" data-i18n="email">Email</button>
+          <button type="button" class="btn" id="btnWhatsApp" data-i18n="whatsapp">WhatsApp</button>
+        </div>
+
+        <p class="section-label" data-i18n="sectionDevice">On this device</p>
+        <div class="cta-row gap wrap start">
+          <button type="button" class="btn" id="btnSaveDraftShare" data-i18n="saveDraft">Save draft</button>
+          <button type="button" class="btn ghost" id="btnLoadDraftShare" data-i18n="loadDraft">Load draft</button>
+          <button type="button" class="btn ghost" id="btnEditAgain" data-i18n="editAgain">Edit again</button>
+          <button type="button" class="btn ghost" id="btnStartOver" data-i18n="startOver">Start over</button>
+        </div>
+
+        <p class="status" id="shareStatus" role="status" aria-live="polite"></p>
+      </section>
+    </main>
+
+    <script src="i18n.js"></script>
+    <script src="generator.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
