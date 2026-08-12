@@ -396,6 +396,10 @@ html[dir="rtl"] .letter-foot {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  margin: 0 0 0.85rem;
+}
+
+.look-extras {
   margin: 0 0 1.25rem;
 }
 
