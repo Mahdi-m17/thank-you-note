@@ -130,3 +130,322 @@ body[data-theme="celebration"] .envelope-flap {
 body[data-theme="celebration"] .brand {
   color: #fff4e4;
 }
+/* Midnight — deep blue/black, cool paper */
+body[data-theme="midnight"] {
+  --ink: #d7e2f0;
+  --ink-soft: #9aadc2;
+  --paper: #1a2330;
+  --paper-edge: #2a3a4d;
+  --wax: #3d6ea8;
+  --wax-shine: #5b8ec8;
+  --sky-deep: #070b12;
+  --brand: #e8f0fa;
+  --dust: 140, 180, 230;
+}
+
+body[data-theme="midnight"] .atmosphere {
+  background:
+    radial-gradient(ellipse 70% 55% at 20% 10%, rgba(50, 90, 150, 0.35), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 85% 75%, rgba(20, 40, 80, 0.55), transparent 50%),
+    linear-gradient(175deg, #0c1420 0%, #070b12 55%, #05080e 100%);
+}
+
+body[data-theme="midnight"] .envelope-back {
+  background: linear-gradient(160deg, #1e2d42 0%, #121c2a 100%);
+}
+
+body[data-theme="midnight"] .envelope-front {
+  background:
+    linear-gradient(180deg, transparent 42%, #162233 42%),
+    linear-gradient(135deg, transparent 49.5%, #1c2c40 49.5%, #1c2c40 50.5%, transparent 50.5%),
+    linear-gradient(-135deg, transparent 49.5%, #132030 49.5%, #132030 50.5%, transparent 50.5%),
+    #182636;
+}
+
+body[data-theme="midnight"] .envelope-flap {
+  background: linear-gradient(180deg, #24384f 0%, #1e2d42 100%);
+}
+
+body[data-theme="midnight"] .letter {
+  box-shadow:
+    0 1px 0 var(--paper-edge),
+    0 24px 48px rgba(0, 0, 0, 0.55);
+}
+
+body[data-theme="midnight"] .letter::before {
+  background:
+    radial-gradient(ellipse at 15% 0%, rgba(90, 140, 200, 0.1), transparent 45%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+}
+
+body[data-theme="midnight"] .to-line,
+body[data-theme="midnight"] .brand {
+  color: #e8f0fa;
+}
+
+/* Garden — botanical green calm */
+body[data-theme="garden"] {
+  --ink: #1f2e24;
+  --ink-soft: #4a5d50;
+  --paper: #f2f5ee;
+  --paper-edge: #d4ddd0;
+  --wax: #3f6b4a;
+  --wax-shine: #5b8a64;
+  --sky-deep: #1c2a20;
+  --brand: #eef5ea;
+  --dust: 190, 220, 180;
+}
+
+body[data-theme="garden"] .atmosphere {
+  background:
+    radial-gradient(ellipse 85% 60% at 70% 5%, rgba(120, 160, 110, 0.35), transparent 55%),
+    radial-gradient(ellipse 55% 45% at 10% 80%, rgba(40, 70, 50, 0.5), transparent 50%),
+    linear-gradient(165deg, #2a3d30 0%, #1c2a20 50%, #152018 100%);
+}
+
+body[data-theme="garden"] .envelope-back {
+  background: linear-gradient(160deg, #3d5a45 0%, #2c4133 100%);
+}
+
+body[data-theme="garden"] .envelope-front {
+  background:
+    linear-gradient(180deg, transparent 42%, #334a3a 42%),
+    linear-gradient(135deg, transparent 49.5%, #3a5342 49.5%, #3a5342 50.5%, transparent 50.5%),
+    linear-gradient(-135deg, transparent 49.5%, #2d4034 49.5%, #2d4034 50.5%, transparent 50.5%),
+    #365040;
+}
+
+body[data-theme="garden"] .envelope-flap {
+  background: linear-gradient(180deg, #4a6b54 0%, #3d5a45 100%);
+}
+
+body[data-theme="garden"] .letter::before {
+  background:
+    radial-gradient(ellipse at 80% 0%, rgba(100, 140, 90, 0.12), transparent 45%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+/* Ocean — teal / sea */
+body[data-theme="ocean"] {
+  --ink: #132830;
+  --ink-soft: #3d5a66;
+  --paper: #eef6f7;
+  --paper-edge: #c9dde1;
+  --wax: #1f6f7a;
+  --wax-shine: #2f8f9b;
+  --sky-deep: #123038;
+  --brand: #e8f6f7;
+  --dust: 160, 220, 230;
+}
+
+body[data-theme="ocean"] .atmosphere {
+  background:
+    radial-gradient(ellipse 80% 55% at 15% 15%, rgba(70, 160, 175, 0.4), transparent 55%),
+    radial-gradient(ellipse 60% 45% at 90% 70%, rgba(20, 70, 90, 0.55), transparent 50%),
+    linear-gradient(170deg, #1a3f48 0%, #123038 50%, #0d242c 100%);
+}
+
+body[data-theme="ocean"] .envelope-back {
+  background: linear-gradient(160deg, #2a5a64 0%, #1c424a 100%);
+}
+
+body[data-theme="ocean"] .envelope-front {
+  background:
+    linear-gradient(180deg, transparent 42%, #214850 42%),
+    linear-gradient(135deg, transparent 49.5%, #27545d 49.5%, #27545d 50.5%, transparent 50.5%),
+    linear-gradient(-135deg, transparent 49.5%, #1b3e46 49.5%, #1b3e46 50.5%, transparent 50.5%),
+    #245058;
+}
+
+body[data-theme="ocean"] .envelope-flap {
+  background: linear-gradient(180deg, #35707c 0%, #2a5a64 100%);
+}
+
+/* Parchment — aged paper, ink */
+body[data-theme="parchment"] {
+  --ink: #2a2118;
+  --ink-soft: #5c4a38;
+  --paper: #e8d9c0;
+  --paper-edge: #cbb894;
+  --wax: #6b3e28;
+  --wax-shine: #8a5236;
+  --sky-deep: #2a2218;
+  --brand: #f0e4ce;
+  --dust: 230, 200, 150;
+}
+
+body[data-theme="parchment"] .atmosphere {
+  background:
+    radial-gradient(ellipse 75% 55% at 60% 0%, rgba(180, 140, 80, 0.28), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 10% 85%, rgba(80, 50, 30, 0.45), transparent 50%),
+    linear-gradient(165deg, #3a2e22 0%, #2a2218 50%, #1e1810 100%);
+}
+
+body[data-theme="parchment"] .envelope-back {
+  background: linear-gradient(160deg, #5a4634 0%, #3f3224 100%);
+}
+
+body[data-theme="parchment"] .envelope-front {
+  background:
+    linear-gradient(180deg, transparent 42%, #4a3a2a 42%),
+    linear-gradient(135deg, transparent 49.5%, #534032 49.5%, #534032 50.5%, transparent 50.5%),
+    linear-gradient(-135deg, transparent 49.5%, #3f3024 49.5%, #3f3024 50.5%, transparent 50.5%),
+    #4d3c2c;
+}
+
+body[data-theme="parchment"] .envelope-flap {
+  background: linear-gradient(180deg, #6a543e 0%, #5a4634 100%);
+}
+
+body[data-theme="parchment"] .letter::before {
+  background:
+    radial-gradient(ellipse at 20% 10%, rgba(160, 110, 60, 0.18), transparent 40%),
+    radial-gradient(ellipse at 85% 90%, rgba(120, 80, 40, 0.14), transparent 40%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+
+body[data-theme="parchment"] .greeting,
+body[data-theme="parchment"] .signature {
+  color: #4a3828 !important;
+}
+
+/* Modern minimal — clean slate, sharp type */
+body[data-theme="modern"] {
+  --ink: #141414;
+  --ink-soft: #555555;
+  --paper: #f7f7f5;
+  --paper-edge: #dddcd8;
+  --wax: #222222;
+  --wax-shine: #444444;
+  --sky-deep: #1a1a1a;
+  --brand: #f5f5f3;
+  --dust: 210, 210, 210;
+}
+
+body[data-theme="modern"] .atmosphere {
+  background:
+    linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 45%, #121212 100%);
+}
+
+body[data-theme="modern"] .brand,
+body[data-theme="modern"] .panel-title {
+  font-family: "Source Sans 3", "Segoe UI", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+body[data-theme="modern"] .envelope-back {
+  background: linear-gradient(160deg, #3a3a3a 0%, #262626 100%);
+}
+
+body[data-theme="modern"] .envelope-front {
+  background:
+    linear-gradient(180deg, transparent 42%, #2e2e2e 42%),
+    linear-gradient(135deg, transparent 49.5%, #353535 49.5%, #353535 50.5%, transparent 50.5%),
+    linear-gradient(-135deg, transparent 49.5%, #282828 49.5%, #282828 50.5%, transparent 50.5%),
+    #323232;
+}
+
+body[data-theme="modern"] .envelope-flap {
+  background: linear-gradient(180deg, #484848 0%, #3a3a3a 100%);
+}
+
+body[data-theme="modern"] .seal {
+  border-radius: 2px;
+  background: linear-gradient(145deg, #444, #222);
+  box-shadow: none;
+}
+
+body[data-theme="modern"] .seal::after {
+  border-radius: 0;
+  inset: 28%;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+body[data-theme="modern"] .letter {
+  box-shadow:
+    0 1px 0 var(--paper-edge),
+    0 16px 32px rgba(0, 0, 0, 0.28);
+}
+
+body[data-theme="modern"] .letter::before {
+  opacity: 0.35;
+}
+
+body[data-theme="modern"] .to-line {
+  font-family: "Source Sans 3", "Segoe UI", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.8rem;
+}
+
+/* Blush / Rose — soft pink, not purple */
+body[data-theme="blush"] {
+  --ink: #3a2428;
+  --ink-soft: #6b4a50;
+  --paper: #faf2f0;
+  --paper-edge: #e8d4d0;
+  --wax: #b45a68;
+  --wax-shine: #d07a86;
+  --sky-deep: #2e1f24;
+  --brand: #fff4f2;
+  --dust: 255, 210, 205;
+}
+
+body[data-theme="blush"] .atmosphere {
+  background:
+    radial-gradient(ellipse 80% 60% at 75% 8%, rgba(210, 130, 130, 0.35), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 15% 75%, rgba(90, 45, 55, 0.45), transparent 50%),
+    linear-gradient(165deg, #3d2a30 0%, #2e1f24 50%, #22161a 100%);
+}
+
+body[data-theme="blush"] .envelope-back {
+  background: linear-gradient(160deg, #6a4450 0%, #4a3038 100%);
+}
+
+body[data-theme="blush"] .envelope-front {
+  background:
+    linear-gradient(180deg, transparent 42%, #543840 42%),
+    linear-gradient(135deg, transparent 49.5%, #5e4048 49.5%, #5e4048 50.5%, transparent 50.5%),
+    linear-gradient(-135deg, transparent 49.5%, #4a3238 49.5%, #4a3238 50.5%, transparent 50.5%),
+    #584048;
+}
+
+body[data-theme="blush"] .envelope-flap {
+  background: linear-gradient(180deg, #7a5560 0%, #6a4450 100%);
+}
+
+body[data-theme="blush"] .brand {
+  color: #fff4f2;
+}
+
+/* Letter style overrides (script vs serif) */
+body[data-letter-style="serif"] .letter-body p {
+  font-family: "Libre Baskerville", "Newsreader", Georgia, serif;
+  font-size: clamp(0.98rem, 2.2vw, 1.08rem);
+  line-height: 1.7;
+}
+
+body[data-letter-style="serif"] .greeting,
+body[data-letter-style="serif"] .signature {
+  font-family: "Libre Baskerville", Georgia, serif !important;
+  font-style: italic;
+}
+
+body[data-letter-style="serif"] .letter.is-rtl .greeting,
+body[data-letter-style="serif"] .letter.is-rtl .signature,
+body[data-letter-style="serif"] .letter[dir="rtl"] .greeting,
+body[data-letter-style="serif"] .letter[dir="rtl"] .signature {
+  font-family: "Vazirmatn", "Noto Naskh Arabic", "Libre Baskerville", sans-serif !important;
+  font-style: normal;
+}
+
+body[data-letter-style="script"] .letter-body p {
+  font-family: "Newsreader", Georgia, serif;
+}
+
+body[data-letter-style="script"] .greeting,
+body[data-letter-style="script"] .signature {
+  font-family: "Caveat", cursive !important;
+}
