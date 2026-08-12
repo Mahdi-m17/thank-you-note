@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="themes.css" />
   </head>
-  <body data-theme="warm" data-ui-lang="en" data-ui-dir="ltr">
+  <body data-theme="warm" data-letter-style="script" data-ui-lang="en" data-ui-dir="ltr">
     <div class="atmosphere" aria-hidden="true">
       <div class="glow glow-a"></div>
       <div class="glow glow-b"></div>
@@ -178,10 +178,25 @@
 
         <p class="section-label" data-i18n="sectionLook">Look</p>
         <div class="theme-picker" role="group" data-i18n-aria="sectionLook">
-          <button type="button" class="theme-chip is-active" data-theme-pick="warm">Warm letter</button>
-          <button type="button" class="theme-chip" data-theme-pick="formal">Formal</button>
-          <button type="button" class="theme-chip" data-theme-pick="soft">Soft</button>
-          <button type="button" class="theme-chip" data-theme-pick="celebration">Celebration</button>
+          <button type="button" class="theme-chip is-active" data-theme-pick="warm" data-i18n="themeWarm">Warm letter</button>
+          <button type="button" class="theme-chip" data-theme-pick="formal" data-i18n="themeFormal">Formal</button>
+          <button type="button" class="theme-chip" data-theme-pick="soft" data-i18n="themeSoft">Soft</button>
+          <button type="button" class="theme-chip" data-theme-pick="celebration" data-i18n="themeCelebration">Celebration</button>
+          <button type="button" class="theme-chip" data-theme-pick="midnight" data-i18n="themeMidnight">Midnight</button>
+          <button type="button" class="theme-chip" data-theme-pick="garden" data-i18n="themeGarden">Garden</button>
+          <button type="button" class="theme-chip" data-theme-pick="ocean" data-i18n="themeOcean">Ocean</button>
+          <button type="button" class="theme-chip" data-theme-pick="parchment" data-i18n="themeParchment">Parchment</button>
+          <button type="button" class="theme-chip" data-theme-pick="modern" data-i18n="themeModern">Modern</button>
+          <button type="button" class="theme-chip" data-theme-pick="blush" data-i18n="themeBlush">Blush</button>
+        </div>
+        <div class="form-grid look-extras">
+          <div class="field">
+            <label class="field-label" for="letterStyleSelect" data-i18n="letterStyle">Letter style</label>
+            <select id="letterStyleSelect">
+              <option value="script" data-i18n-option="letterStyleScript">Classic script</option>
+              <option value="serif" data-i18n-option="letterStyleSerif">Clean serif</option>
+            </select>
+          </div>
         </div>
 
         <div class="cta-row gap wrap">
