@@ -73,6 +73,15 @@ window.AppI18n = (() => {
       themeFormal: "Formal",
       themeSoft: "Soft",
       themeCelebration: "Celebration",
+      themeMidnight: "Midnight",
+      themeGarden: "Garden",
+      themeOcean: "Ocean",
+      themeParchment: "Parchment",
+      themeModern: "Modern",
+      themeBlush: "Blush",
+      letterStyle: "Letter style",
+      letterStyleScript: "Classic script",
+      letterStyleSerif: "Clean serif",
       toneWarm: "Warm",
       toneFormal: "Formal",
       tonePlayful: "Playful",
@@ -204,6 +213,15 @@ window.AppI18n = (() => {
       themeFormal: "رسمی",
       themeSoft: "ملایم",
       themeCelebration: "جشن",
+      themeMidnight: "نیمه‌شب",
+      themeGarden: "باغ",
+      themeOcean: "اقیانوس",
+      themeParchment: "پوست‌نوشته",
+      themeModern: "مدرن",
+      themeBlush: "صورتی ملایم",
+      letterStyle: "سبک نامه",
+      letterStyleScript: "دست‌نویس کلاسیک",
+      letterStyleSerif: "سریف تمیز",
       toneWarm: "گرم",
       toneFormal: "رسمی",
       tonePlayful: "شوخ",
@@ -821,16 +839,31 @@ window.AppI18n = (() => {
 
     document.querySelectorAll("[data-theme-pick]").forEach((btn) => {
       const theme = btn.getAttribute("data-theme-pick");
-      const key =
-        theme === "warm"
-          ? "themeWarm"
-          : theme === "formal"
-            ? "themeFormal"
-            : theme === "soft"
-              ? "themeSoft"
-              : "themeCelebration";
-      btn.textContent = str(key);
+      const keyMap = {
+        warm: "themeWarm",
+        formal: "themeFormal",
+        soft: "themeSoft",
+        celebration: "themeCelebration",
+        midnight: "themeMidnight",
+        garden: "themeGarden",
+        ocean: "themeOcean",
+        parchment: "themeParchment",
+        modern: "themeModern",
+        blush: "themeBlush",
+      };
+      const key = keyMap[theme];
+      if (key) btn.textContent = str(key);
     });
+
+    const letterStyleSel = document.getElementById("letterStyleSelect");
+    if (letterStyleSel) {
+      const value = letterStyleSel.value;
+      const scriptOpt = letterStyleSel.querySelector('option[value="script"]');
+      const serifOpt = letterStyleSel.querySelector('option[value="serif"]');
+      if (scriptOpt) scriptOpt.textContent = str("letterStyleScript");
+      if (serifOpt) serifOpt.textContent = str("letterStyleSerif");
+      letterStyleSel.value = value;
+    }
   }
 
   return { LANGS, t, str, apply, get current() { return current; } };
