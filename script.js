@@ -18,6 +18,7 @@
     occasion: document.getElementById("occasionSelect"),
     greetingStyle: document.getElementById("greetingStyleSelect"),
     closingStyle: document.getElementById("closingStyleSelect"),
+    letterStyle: document.getElementById("letterStyleSelect"),
     greeting: document.getElementById("greetingInput"),
     paragraphFields: document.getElementById("paragraphFields"),
     closing: document.getElementById("closingInput"),
@@ -39,6 +40,7 @@
   const NOTE_LANG_KEY = "thankYouNoteLang";
 
   let currentTheme = "warm";
+  let currentLetterStyle = "script";
   let noteData = null;
   let opening = false;
   let paragraphCount = 2;
@@ -120,6 +122,12 @@
     });
   }
 
+  function setLetterStyle(style) {
+    currentLetterStyle = style === "serif" ? "serif" : "script";
+    document.body.setAttribute("data-letter-style", currentLetterStyle);
+    if (els.letterStyle) els.letterStyle.value = currentLetterStyle;
+  }
+
   function getParagraphCount() {
     return Math.min(4, Math.max(1, Number(els.paragraphSelect.value) || 2));
   }
@@ -166,6 +174,7 @@
     const paragraphs = readParagraphValues().filter(Boolean);
     return {
       theme: currentTheme,
+      letterStyle: currentLetterStyle,
       language: noteLanguage,
       tone: els.tone.value,
       length: els.length.value,
@@ -202,6 +211,7 @@
     if (draft.greetingStyle) els.greetingStyle.value = draft.greetingStyle;
     if (draft.closingStyle) els.closingStyle.value = draft.closingStyle;
     if (draft.theme) setTheme(draft.theme);
+    if (draft.letterStyle) setLetterStyle(draft.letterStyle);
     if (draft.language) setNoteLanguage(draft.language);
 
     let paras = draft.paragraphs;
@@ -283,6 +293,7 @@
   function fillLetter(data) {
     noteData = data;
     setTheme(data.theme);
+    if (data.letterStyle) setLetterStyle(data.letterStyle);
     if (data.language) setNoteLanguage(data.language);
     const rtl = window.ThankYouGenerator.isRtl(data.language || noteLanguage);
     els.letter.setAttribute("dir", rtl ? "rtl" : "ltr");
@@ -521,7 +532,7 @@ ${themes}
 .letter-foot .btn { display: none !important; }
 </style>
 </head>
-<body data-theme="${escapeHtml(data.theme || "warm")}" data-note-lang="${escapeHtml(data.language || "en")}">
+<body data-theme="${escapeHtml(data.theme || "warm")}" data-letter-style="${escapeHtml(data.letterStyle || "script")}" data-note-lang="${escapeHtml(data.language || "en")}">
 <div class="atmosphere" aria-hidden="true">
   <div class="glow glow-a"></div>
   <div class="glow glow-b"></div>
@@ -693,6 +704,7 @@ document.getElementById("readAgain").addEventListener("click", reveal);
     els.signature.value = "";
     renderParagraphFields(2, []);
     setTheme("warm");
+    setLetterStyle("script");
     noteData = null;
     setStatus(els.shareStatus, "");
     setStatus(els.customizeStatus, "");
@@ -725,6 +737,10 @@ document.getElementById("readAgain").addEventListener("click", reveal);
   document.querySelectorAll("[data-theme-pick]").forEach((btn) => {
     btn.addEventListener("click", () => setTheme(btn.getAttribute("data-theme-pick")));
   });
+
+  if (els.letterStyle) {
+    els.letterStyle.addEventListener("change", () => setLetterStyle(els.letterStyle.value));
+  }
 
   document.getElementById("btnPreview").addEventListener("click", () => {
     let data = collectNote();
@@ -811,6 +827,7 @@ document.getElementById("readAgain").addEventListener("click", reveal);
 
   initDust();
   setTheme("warm");
+  setLetterStyle("script");
   renderParagraphFields(2, []);
   refreshDraftButtons();
 
